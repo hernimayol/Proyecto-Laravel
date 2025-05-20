@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('tikets', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
+            $table->text('descripcion')->nullable();
+            $table->string('estado')->default('abierto');
+            $table->unsignedBigInteger('usuario_id');
             $table->timestamps();
+
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

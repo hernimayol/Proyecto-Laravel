@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('tiket_comentarios', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tiket_id');
+            $table->unsignedBigInteger('usuario_id');
+            $table->text('comentario');
             $table->timestamps();
+            
+            $table->foreign('tiket_id')->references('id')->on('tikets')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
