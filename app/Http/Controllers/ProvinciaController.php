@@ -13,7 +13,17 @@ class ProvinciaController extends Controller
      */
     public function index()
     {
-        //
+        $provincias = Provincia::all(); //SELECT * FROM provincias;
+        
+
+        $provinciasMapeadas = $provincias->map(function($provincia){
+            return [
+                'id'=>$provincia->id,
+                'nombre'=>$provincia->nombre,
+            ];
+        });
+        return response()->json($provinciasMapeadas); //Retorna los parametros en tipo Json
+        //y de resultado me traerá todo lo de provincias
     }
 
     /**
