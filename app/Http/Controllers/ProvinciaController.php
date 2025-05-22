@@ -25,6 +25,13 @@ class ProvinciaController extends Controller
         return response()->json($provincias); //Retorna los parametros en tipo Json
         //y de resultado me traerá todo lo de provincias
     }
+    
+    public function getProvinciasTiket()
+    {
+        //generar una provincia con n tiket
+    }
+
+
 
     /**
      * Show the form for creating a new resource. Se usa para mostrar un formulario por HTML

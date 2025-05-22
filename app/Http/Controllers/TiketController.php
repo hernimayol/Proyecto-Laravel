@@ -14,6 +14,7 @@ class TiketController extends Controller
     {
         //$tikets = Tiket::all();
         $tikets = Tiket::with('provincia')->get();
+        
         $tikets = $tikets->map(function($tiket){
             return [
                 'id'=>$tiket->id,
