@@ -16,8 +16,14 @@ class Tiket extends Model
         'titulo',
         'descripcion',
         'estado',
+        'provincia_id',
         'usuario_id',
     ];
+
+    public function provincia()
+        {
+            return $this->belongsTo(Provincia::class, 'provincia_id','id');
+        }
 
     public function comentarios(): HasMany{
         return $this->hasMany(TiketComentario::class,'tiket_id');

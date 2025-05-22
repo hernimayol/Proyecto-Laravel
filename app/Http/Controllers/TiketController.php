@@ -28,7 +28,14 @@ class TiketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tiket = Tiket::create([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'estado'=>$request->estado,
+            'provincia_id'=>$request->provincia_id,
+            'usuario_id'=>$request->usuario_id,
+        ]);
+        return response()->json($tiket);
     }
 
     /**
