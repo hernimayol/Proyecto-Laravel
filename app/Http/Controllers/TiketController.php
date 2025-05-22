@@ -12,7 +12,17 @@ class TiketController extends Controller
      */
     public function index()
     {
-        //
+        //$tikets = Tiket::all();
+        $tikets = Tiket::with('provincia')->get();
+        $tikets = $tikets->map(function($tiket){
+            return [
+                'id'=>$tiket->id,
+                'nombre'=>$tiket->nombre,
+                'provincia'=>$tiket->provincia->nombre
+            ];
+        });
+
+        return response()->json($tikets);
     }
 
     /**
@@ -31,9 +41,9 @@ class TiketController extends Controller
         $tiket = Tiket::create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
-            'estado'=>$request->estado,
+        //    'estado'=>$request->estado,
             'provincia_id'=>$request->provincia_id,
-            'usuario_id'=>$request->usuario_id,
+        //    'usuario_id'=>$request->usuario_id,
         ]);
         return response()->json($tiket);
     }

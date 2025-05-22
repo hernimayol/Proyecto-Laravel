@@ -10,14 +10,14 @@ class Tiket extends Model
 
     protected $table = 'tikets';
     protected $primaryKey='id';
-    protected $timestamps=true;
+    public $timestamps=true;
 
     protected $fillable = [
         'titulo',
         'descripcion',
-        'estado',
+    //    'estado',
         'provincia_id',
-        'usuario_id',
+    //    'usuario_id',
     ];
 
     public function provincia()
