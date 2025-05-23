@@ -19,8 +19,13 @@ class TiketController extends Controller
             return [
                 'id'=>$tiket->id,
                 'nombre'=>$tiket->nombre,
-                'provincia'=>$tiket->provincia->nombre
+                $tiket->provincia->nombre
+                //'provincia'=> [
+                //    'id'=>$tiket->provincia->id,
+                //    'nombre'->$tiket->provincia->nombre
             ];
+                //
+            
         });
 
         return response()->json($tikets);
