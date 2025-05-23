@@ -57,9 +57,10 @@ class TiketController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tiket $tiket)
+    public function show(int $id)
     {
-        //
+        $tiket = Tiket::find($id); //Genera una excepcion, busca un solo registro
+        return response()->json($tiket);
     }
 
     /**
