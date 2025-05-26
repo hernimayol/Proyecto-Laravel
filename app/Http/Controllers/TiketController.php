@@ -55,7 +55,7 @@ class TiketController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show muestra un archivo.
      */
     public function show(int $id)
     {
@@ -64,7 +64,7 @@ class TiketController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Edit edita un archivo.
      */
     public function edit(Tiket $tiket)
     {
@@ -72,7 +72,7 @@ class TiketController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update actualiza un archivo.
      */
     public function update(Request $request, Tiket $tiket)
     {
@@ -80,7 +80,7 @@ class TiketController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Destroy destruye/elimina un archivo.
      */
     public function destroy(Tiket $tiket)
     {
