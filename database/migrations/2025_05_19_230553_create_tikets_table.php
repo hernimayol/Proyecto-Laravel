@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('titulo', 100);
             $table->text('descripcion')->nullable();
-        //    $table->string('estado')->default('abierto');
+        //    $table->string('estado')->default('abierto'); COMENTADO POR MAL FUNCIONAMIENTO (REHACER)
             $table->unsignedBigInteger('provincia_id');
-        //    $table->unsignedBigInteger('usuario_id');
+        //    $table->unsignedBigInteger('usuario_id'); COMENTADO POR MAL FUNCIONAMIENTO (REHACER)
             $table->timestamps();
 
             $table->foreign('provincia_id')->references('id')->on('provincias')->onDelete('cascade');
 
-        //    $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
+        //    $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');    COMENTADO POR MAL FUNCIONAMIENTO (REHACER)
         });
     }
 
