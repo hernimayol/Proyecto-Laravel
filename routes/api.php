@@ -11,7 +11,7 @@ Route::get('/user', function (Request $request) {
 
 Route::get('get-provincias', [ProvinciaController::class, 'index']);
 
-//Tikets
+// Solicitudes HTTP para Tikets
 Route::get('get-tikets', [TiketController::class, 'index']);
 Route::get('get-tiket/{id}', [TiketController::class, 'show']);
 Route::post('set-tiket', [TiketController::class, 'store']);
