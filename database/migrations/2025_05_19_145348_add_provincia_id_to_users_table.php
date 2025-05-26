@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('provincia_id')->nullable()->after('email');
 
-            $table->foreign('provincia_id')->references('id')->on('provincias');
+            $table->foreign('provincia_id')->references('id')->on('provincias'); //Agregando Clave foreanea
         });
     }
 
