@@ -74,16 +74,22 @@ class TiketController extends Controller
     /**
      * Update actualiza un archivo.
      */
-    public function update(Request $request, Tiket $tiket)
+    public function update(Request $request, int $id)
     {
-        //
+        $tiket = Tiket::find($id);
+        $tiket->nombre = $request->nombre; //
+        $tiket->descripcion = $request->descripcion;
+        $tiket->provincia_id = $request->provincia_id;
+        $tiket->save();
+        return response()->json($tiket);
     }
 
     /**
      * Destroy destruye/elimina un archivo.
      */
-    public function destroy(Tiket $tiket)
+    public function destroy(int $id)
     {
-        //
+        $tiket = Tiket::find($id);
+        $tiket->delete();
     }
 }

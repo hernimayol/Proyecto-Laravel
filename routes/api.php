@@ -8,8 +8,8 @@ use App\Http\Controllers\ProvinciaController;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
-
-Route::get('get-provincias', [ProvinciaController::class, 'index']);
+//define la ruta de una peticion get, donde el 1er argumento es el endpoint de la ruta y el segundo
+Route::get('get-provincias', [ProvinciaController::class, 'index']); //Cuando alguien accede a la ruta get
 
 // Solicitudes HTTP para Tikets
 Route::get('get-tikets', [TiketController::class, 'index']);
