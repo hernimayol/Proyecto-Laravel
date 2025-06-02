@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tiket;
+use App\Models\Provincia;
 use Illuminate\Http\Request;
 
 class TiketController extends Controller
@@ -77,7 +78,8 @@ class TiketController extends Controller
     public function update(Request $request, int $id)
     {
         $tiket = Tiket::find($id);
-        $tiket->nombre = $request->nombre; //
+       // dd($request->titulo); //Es como una opcion de mostrar la variable
+        $tiket->titulo = $request->titulo; //
         $tiket->descripcion = $request->descripcion;
         $tiket->provincia_id = $request->provincia_id;
         $tiket->save();
@@ -92,4 +94,5 @@ class TiketController extends Controller
         $tiket = Tiket::find($id);
         $tiket->delete();
     }
+
 }

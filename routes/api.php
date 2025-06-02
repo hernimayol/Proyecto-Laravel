@@ -10,6 +10,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 //define la ruta de una peticion get, donde el 1er argumento es el endpoint de la ruta y el segundo
 Route::get('get-provincias', [ProvinciaController::class, 'index']); //Cuando alguien accede a la ruta get
+Route::get('get-provincia-tiket/{id}', [ProvinciaController::class, 'getProvinciaTikets']);
 
 // Solicitudes HTTP para Tikets
 Route::get('get-tikets', [TiketController::class, 'index']);

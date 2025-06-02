@@ -80,4 +80,10 @@ class ProvinciaController extends Controller
     {
         //
     }
+    
+    public function getProvinciaTikets($id)
+    {
+        $provincia = Provincia::whit('tiket')->find($id);
+        return response()->json($provincia);
+    }
 }
