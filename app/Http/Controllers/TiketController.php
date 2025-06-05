@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTiketRequest;
 use App\Models\Tiket;
 use App\Models\Provincia;
 use Illuminate\Http\Request;
@@ -43,7 +44,7 @@ class TiketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTiketRequest $request)
     {
         $tiket = Tiket::create([
             'titulo' => $request->titulo,
