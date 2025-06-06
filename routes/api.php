@@ -4,13 +4,20 @@ use App\Http\Controllers\TiketController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinciaController;
+use App\Http\Controllers\API\AuthController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function (){ //Todo lo que entra acá, requiere si o si un Login, sino las rutas no responden
+    //Route::get('/profile', [AuthController::class, 'profile']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('get-provincias', [ProvinciaController::class, 'index']); //Cuando alguien accede a la ruta get
+});
+
 //define la ruta de una peticion get, donde el 1er argumento es el endpoint de la ruta y el segundo
-Route::get('get-provincias', [ProvinciaController::class, 'index']); //Cuando alguien accede a la ruta get
-Route::get('get-provincia-tiket/{id}', [ProvinciaController::class, 'getProvinciaTikets']);
+
+//Route::get('get-provincia-tiket/{id}', [ProvinciaController::class, 'getProvinciaTikets']);
 
 // Solicitudes HTTP para Tikets
 Route::get('get-tikets', [TiketController::class, 'index']);
