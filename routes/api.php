@@ -9,7 +9,7 @@ use App\Http\Controllers\API\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->group(function (){ //Todo lo que entra acá, requiere si o si un Login, sino las rutas no responden
+Route::middleware('auth:sanctum')->group(function (){ // lo que entra acá, requiere si o si un Login, sino las rutas no responden
     //Route::get('/profile', [AuthController::class, 'profile']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('get-provincias', [ProvinciaController::class, 'index']); //Cuando alguien accede a la ruta get
